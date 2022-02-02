@@ -11,7 +11,7 @@ from django.contrib import messages
 
 
 
-# Create your views here.
+
 @login_required
 def add_to_cart(request,pk):
     item= get_object_or_404(Product, pk=pk)
@@ -109,7 +109,7 @@ def decrease_cart(request,pk):
                 return redirect("App_Order:cart")
             else:
                 order.orderitem.remove(order_item)
-                oreder_item.delete()
+                order_item.delete()
                 messages.warning(request, f"{item.name} has been removed from your cart")
                 return redirect("App_Order:cart")
         else:

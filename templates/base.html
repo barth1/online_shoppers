@@ -26,6 +26,20 @@
 </head>
         <body class="common-home">
 			{% include 'navbar.html' %}
+            
+    <div class="container" style="padding-top:20px">
+        <div class="messages container mt-2">
+          {% if messages %}
+          {% for message in messages %}
+          <div {% if message.tags %} class="alert alert-{{message.tags}}"  {% endif %} role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-level="close">
+              <span aria-hidden="true" >&times;</span>
+            </button>
+          </div>
+            {% endfor %}
+          {% endif %}
+        </div>
 			
 			{% block body_block %}
 

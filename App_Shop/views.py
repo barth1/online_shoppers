@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from django.views.generic import ListView, DetailView
 
-from App_Shop.models import Product
+from App_Shop.models import Category, Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
@@ -17,3 +17,8 @@ class ProductDetail(DetailView, LoginRequiredMixin ):
     #writing  the loginRequiredMixin at the beginning those not allow u to access the product details if you're not login
     model = Product
     template_name= 'App_Shop/product_detail.html'
+
+
+class Shopping  (ListView):
+    model = Product
+    template_name='App_Shop/shop.html'
