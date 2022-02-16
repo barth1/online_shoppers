@@ -24,26 +24,28 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{%  static 'images/ico/apple-touch-icon-72-precomposed.png' %}">
     <link rel="apple-touch-icon-precomposed" href="{%  static 'images/ico/apple-touch-icon-57-precomposed.png' %}">
 </head>
-        <body class="common-home">
+  <body >
 			{% include 'navbar.html' %}
             
-    <div class="container" style="padding-top:20px">
-        <div class="messages container mt-2">
-          {% if messages %}
-          {% for message in messages %}
-          <div {% if message.tags %} class="alert alert-{{message.tags}}"  {% endif %} role="alert">
-            {{ message }}
-            <button type="button" class="close" data-dismiss="alert" aria-level="close">
-              <span aria-hidden="true" >&times;</span>
-            </button>
-          </div>
-            {% endfor %}
-          {% endif %}
-        </div>
-			
-			{% block body_block %}
-
-			{% endblock %}
+    
+		
+            <div class="container" style="padding-top:20px">
+                <div class="messages container mt-2">
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div {% if message.tags %} class="alert alert-{{message.tags}}"  {% endif %} role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-level="close">
+                      <span aria-hidden="true" >&times;</span>
+                    </button>
+                  </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                  {% block body_block %}
+            
+                  {% endblock %}
+                </div>
 			{% include 'footer.html' %}
             
     <script src="{% static 'js/jquery.js' %}"></script>
